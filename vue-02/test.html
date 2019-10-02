@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{msg}}</p>
+    <p>大写：{{msg.toUpperCase()}}</p>
+    <p v-html="htmlMsg"></p>
+    <p v-text="htmlMsg"></p>
+    <img :src="imageUrl" style="width: 100px;"/>
+    <button @click="test01(msg)">test1</button>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello',
+            htmlMsg: '<font color="red">5122</font>',
+            imageUrl: 'https://img-blog.csdnimg.cn/20190222180929114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzU0NzA5,size_16,color_FFFFFF,t_70'
+        },
+        methods:{
+            test01(text){
+                console.log(text)
+            }
+        }
+    })
+</script>
+</body>
+</html>
