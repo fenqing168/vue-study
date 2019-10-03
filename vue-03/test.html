@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="姓" v-model="firstname">
+    <input type="text" placeholder="名" v-model="lastname">
+    <input type="text" placeholder="姓名" :value="fullname">
+    <input type="text" placeholder="姓名" :value="fullname2">
+    <input type="text" placeholder="姓名" v-model="fullname3">
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            firstname:null,
+            lastname: null,
+            fullname2: null
+        },
+        computed:{
+            /**
+             * 执行时机：初始化显示执行，相关的数据发生改变执行
+             * @returns {string}
+             */
+            fullname(){
+                console.log('fullname()')
+                return this.firstname + ' ' + this.lastname
+            },
+            fullname3:{
+                get(){
+                    return this.firstname + ' ' + this.lastname
+                },
+                set(value){
+                    let vals = value.split(' ')
+                    this.firstname = vals[0] ? vals[0] : ``
+                    this.lastname = vals[1] ? vals[1] : ``
+                }
+            }
+        },
+        watch: {
+            firstname:function (newValue, oldValue) {
+                this.fullname2 = newValue + ' ' + this.lastname
+            },
+        },
+        methods:{
+
+        }
+    })
+
+    vm.$watch('lastname', function (value) {
+        this.fullname2 = this.firstname + ' ' + value
+    })
+</script>
+</body>
+</html>
