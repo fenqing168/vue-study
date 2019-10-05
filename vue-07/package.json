@@ -1,5 +1,5 @@
 {
-  "name": "vue-06",
+  "name": "vue-07",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "wangding <wangding>",
@@ -12,8 +12,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
     "vue": "^2.5.2"
   },
   "devDependencies": {
